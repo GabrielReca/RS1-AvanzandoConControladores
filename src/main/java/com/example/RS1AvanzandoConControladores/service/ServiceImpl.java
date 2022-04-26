@@ -13,16 +13,7 @@ public class ServiceImpl {
 
     public String obtenerPersonaPorId(int id)
     {
-        Persona p = new Persona();
-        for(Persona it: listaPersonas)
-        {
-            if(it.getId() == id)
-            {
-                p = it;
-            }
-        }
-        System.out.println(p.toString());
-        return p.toString();
+        return listaPersonas.get(id).toString();
     }
 
     public String obtenerPersonaPorNombre(String nombre)
@@ -47,24 +38,12 @@ public class ServiceImpl {
 
     public void borrarPersona(int id)
     {
-        for(Persona it: listaPersonas)
-        {
-            if(it.getId() == id)
-            {
-                listaPersonas.remove(it);
-            }
-        }
+        listaPersonas.remove(id);
     }
 
     public void modificarPersona(int id, Persona persona)
     {
-        for(Persona it: listaPersonas)
-        {
-            if(it.getId() == id)
-            {
-                listaPersonas.remove(it);
-                listaPersonas.add(persona);
-            }
-        }
+        listaPersonas.remove(id);
+        listaPersonas.add(persona);
     }
 }
